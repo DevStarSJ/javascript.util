@@ -1,4 +1,3 @@
-
 export function arrayMoveSelf(array, from, to) {
   const insertPosition = to < 0 ? array.length + to : to;
   array.splice(insertPosition, 0, array.splice(from, 1)[0]);
