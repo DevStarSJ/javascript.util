@@ -19,19 +19,15 @@ export default function LexoRank(prev='', next='') {
   while (true) {
     const prevChar = getChar(prev, i, minChar);
     const nextChar = getChar(next, i, maxChar);
-
-    if (prevChar === nextChar) {
+    const nextStep = () => {
       rank += prevChar;
       i++;
-      continue;
     }
+
+    if (prevChar === nextChar) { nextStep(); continue; }
 
     const midChar = mid(prevChar, nextChar)
-    if (midChar === prevChar || midChar == nextChar) {
-      rank += prevChar;
-      i++;
-      continue;
-    }
+    if (midChar === prevChar || midChar === nextChar) { nextStep(); continue; }
 
     rank += midChar;
     break;
